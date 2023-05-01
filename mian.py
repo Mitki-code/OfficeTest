@@ -47,8 +47,8 @@ async def greet_user(graph: Graph):
     return
 
 async def display_access_token(graph: Graph):
-    # TODO
-    return
+    token = await graph.get_user_token()
+    print('User token:', token, '\n')
 
 async def list_inbox(graph: Graph):
     # TODO
@@ -61,3 +61,6 @@ async def send_mail(graph: Graph):
 async def make_graph_call(graph: Graph):
     # TODO
     return
+
+# Run main
+asyncio.run(main())
