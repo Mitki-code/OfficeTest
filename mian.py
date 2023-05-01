@@ -43,8 +43,12 @@ async def main():
             print('Invalid choice!\n')
 
 async def greet_user(graph: Graph):
-    # TODO
-    return
+    user = await graph.get_user()
+    if user is not None:
+        print('Hello,', user.display_name)
+        # For Work/school accounts, email is in mail property
+        # Personal accounts, email is in userPrincipalName
+        print('Email:', user.mail or user.user_principal_name, '\n')
 
 async def display_access_token(graph: Graph):
     token = await graph.get_user_token()
